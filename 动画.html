@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotating Earth with Meridians</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.earth {
+  animation: rotate 10s linear infinite;
+}
+
+.equator {
+  stroke: #0f8;
+  stroke-width: 4;
+}
+
+.meridian {
+  stroke: #0f8;
+  stroke-width: 2;
+  opacity: 0.7;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translate(-100px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-100px) rotate(-360deg);
+  }
+}
+</style>
+<body>
+
+<svg class="earth" width="200" height="200" viewBox="0 0 200 200">
+  <!-- 赤道 -->
+  <circle class="equator" cx="100" cy="100" r="50"></circle>
+  <!-- 经线 -->
+  <line class="meridian" x1="100" y1="50" x2="100" y2="150"></line>
+  <line class="meridian" x1="60" y1="100" x2="140" y2="100" transform="rotate(30 100 100)"></line>
+  <line class="meridian" x1="60" y1="100" x2="140" y2="100" transform="rotate(60 100 100)"></line>
+  <line class="meridian" x1="60" y1="100" x2="140" y2="100" transform="rotate(90 100 100)"></line>
+  <line class="meridian" x1="60" y1="100" x2="140" y2="100" transform="rotate(120 100 100)"></line>
+  <line class="meridian" x1="60" y1="100" x2="140" y2="100" transform="rotate(150 100 100)"></line>
+</svg>
+
+</body>
+</html>
